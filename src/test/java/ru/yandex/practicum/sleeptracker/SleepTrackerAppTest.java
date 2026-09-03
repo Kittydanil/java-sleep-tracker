@@ -107,14 +107,14 @@ public class SleepTrackerAppTest {
         );
         var result = new AverageDurationAnalyzer().apply(sessions);
         // Среднее: (120 + 120 + 240) / 3 = 160.00
-        assertEquals("160,00", result.getResult());
+        assertEquals("160.00", result.getResult());
     }
 
     @Test
     @DisplayName("AverageDurationAnalyzer: пустой список — 0.00")
     void averageDurationEmpty() {
         var result = new AverageDurationAnalyzer().apply(Collections.emptyList());
-        assertEquals("0,00", result.getResult());
+        assertEquals("0.00", result.getResult());
     }
 
     // ── BadQualitySessionsAnalyzer ──
