@@ -4,10 +4,12 @@ import java.util.List;
 import java.util.function.Function;
 
 public class MinDurationAnalyzer implements Function<List<SleepingSession>, SleepAnalysisResult> {
+    private static final String DESCRIPTION = "Минимальная продолжительность сна в минутах";
+
     @Override
     public SleepAnalysisResult apply(List<SleepingSession> sessions) {
         return new SleepAnalysisResult(
-                "Минимальная продолжительность сна в минутах",
+                DESCRIPTION,
                 sessions.stream()
                 .mapToLong(SleepingSession::getDurationMinutes)
                 .min()

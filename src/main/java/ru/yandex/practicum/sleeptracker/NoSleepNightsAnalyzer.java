@@ -13,10 +13,12 @@ public class NoSleepNightsAnalyzer implements Function<List<SleepingSession>, Sl
     private static final LocalTime NIGHT_END = LocalTime.of(6, 0);
     private static final LocalTime NOON = LocalTime.of(12, 0);
 
+    private static final String DESCRIPTION = "Количество бессонных ночей";
+
     @Override
     public SleepAnalysisResult apply(List<SleepingSession> sessions) {
         if (sessions.isEmpty()) {
-            return new SleepAnalysisResult("Количество бессонных ночей", 0);
+            return new SleepAnalysisResult(DESCRIPTION, 0);
         }
 
         LocalDate firstDate = sessions.getFirst().getStart().toLocalDate();
@@ -33,7 +35,7 @@ public class NoSleepNightsAnalyzer implements Function<List<SleepingSession>, Sl
                 .filter(night -> isNightWithoutSleep(night, sessions))
                 .count();
 
-        return new SleepAnalysisResult("Количество бессонных ночей", noSleepNights);
+        return new SleepAnalysisResult(DESCRIPTION, noSleepNights);
     }
 
     private boolean isNightWithoutSleep(LocalDate night, List<SleepingSession> sessions) {

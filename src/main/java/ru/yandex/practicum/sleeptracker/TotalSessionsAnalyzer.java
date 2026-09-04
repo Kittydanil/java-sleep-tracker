@@ -4,10 +4,12 @@ import java.util.List;
 import java.util.function.Function;
 
 public class TotalSessionsAnalyzer implements Function<List<SleepingSession>, SleepAnalysisResult> {
+    private static final String DESCRIPTION = "Общее количество сессий сна";
+
     @Override
     public SleepAnalysisResult apply(List<SleepingSession> sessions) {
         return new SleepAnalysisResult(
-                "Общее количество сессий сна",
+                DESCRIPTION,
                 sessions.size()
         );
     }

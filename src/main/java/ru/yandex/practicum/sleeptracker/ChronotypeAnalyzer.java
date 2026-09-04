@@ -16,10 +16,12 @@ public class ChronotypeAnalyzer implements Function<List<SleepingSession>, Sleep
     private static final LocalTime NOON = LocalTime.of(12, 0);
     private static final LocalTime SIX_AM = LocalTime.of(6, 0);
 
+    private static final String DESCRIPTION = "Определенный хронотип";
+
     @Override
     public SleepAnalysisResult apply(List<SleepingSession> sessions) {
         if (sessions.isEmpty()) {
-            return new SleepAnalysisResult("Определенный хронотип", Chronotype.PIGEON.getDescription());
+            return new SleepAnalysisResult(DESCRIPTION, Chronotype.PIGEON.getDescription());
         }
 
         Map<Chronotype, Long> chronotypeCount = sessions.stream()
