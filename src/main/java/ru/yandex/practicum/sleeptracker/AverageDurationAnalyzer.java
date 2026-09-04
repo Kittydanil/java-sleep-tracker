@@ -5,6 +5,7 @@ import java.util.function.Function;
 
 public class AverageDurationAnalyzer implements Function<List<SleepingSession>, SleepAnalysisResult> {
     private static final String DESCRIPTION = "Средняя продолжительность сна";
+
     @Override
     public SleepAnalysisResult apply(List<SleepingSession> sessions) {
         return new SleepAnalysisResult(
